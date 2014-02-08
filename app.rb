@@ -6,13 +6,21 @@ require 'rubygems'
 require 'sinatra'
 require 'sinatra/reloader'
 
+require 'mongoid'
+Mongoid.load!('mongoid.yml', :development)
+require_relative './models/account'
+
+
+Account.all().each do |a|
+	p a
+end
+
 helpers do
 	include Rack::Utils; alias_method :h, :escape_html
 end
 
-set :public_folder, File.dirname(__FILE__) + '/static'
-
 configure do
+	set :public_folder, File.dirname(__FILE__) + '/static'
 end
 
 post '/voices/publish.xml' do
