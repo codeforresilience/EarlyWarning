@@ -10,6 +10,13 @@ end
 configure do
 end
 
+post '/voices/publish.xml' do
+  <<-EOX
+<?xml version="1.0" encoding="UTF-8"?>
+<Response><Play>http://com.twilio.music.ambient.s3.amazonaws.com/aerosolspray_-_Living_Taciturn.mp3</Play><Play>http://com.twilio.music.ambient.s3.amazonaws.com/gurdonark_-_Plains.mp3</Play><Play>http://com.twilio.music.ambient.s3.amazonaws.com/gurdonark_-_Exurb.mp3</Play><Redirect></Redirect></Response>
+  EOX
+end
+
 get '/voices/receipt.xml' do
 	content_type 'text/xml'
 	<<-EOX
