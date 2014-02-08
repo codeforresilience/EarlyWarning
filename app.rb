@@ -32,9 +32,9 @@ post '/publish' do
 	headers 'Access-Control-Allow-Origin' => '*'
 	request.body.rewind
 	params = JSON.parse request.body.read
-	center = [params['lat'].to_f, params['lon'].to_f]
+	center = [params['lat'], params['lon']]
 	p params
-	Account.geo_near(center).max_distance(10000000000).each do |a|
+	Account.geo_near(center).max_distance(params['radius']).each do |a|
 		p a
 	end
 	'It works!'
