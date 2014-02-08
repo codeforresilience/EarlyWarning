@@ -5,9 +5,13 @@ This repository is for 'Code for Resilience'.
 
 ## Web APIs
 
-### /voices/receipt
+### /voices/receipt.xml
 
-受付コールの発話内容、発信前にtwilioからリクエストがくる。
+受付コールの発話内容、発信前にtwilioからリクエストがくる。まずは固定ファイルでOK。
+
+#### Request
+
+GETのみ
 
 #### Response
 
