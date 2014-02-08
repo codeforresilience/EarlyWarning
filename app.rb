@@ -3,12 +3,24 @@
 require 'json'
 
 require 'rubygems'
+require 'pit'
+require 'twilio-ruby'
 require 'sinatra'
 require 'sinatra/reloader'
 
 require 'mongoid'
 Mongoid.load!('mongoid.yml', :development)
 require_relative './models/account'
+
+config = Pit.get('twilio',
+				 :require => {
+	'sid'   => 'twilio sid',
+	'token' => 'twilio auth token',
+	'from' => 'twilio from phone number',
+})
+
+$twilio = Twilio::REST::Client.new(config['sid'], config['token'])
+$from_phone_number = config['from']
 
 helpers do
 	include Rack::Utils; alias_method :h, :escape_html
@@ -35,7 +47,10 @@ post '/publish' do
 	center = [params['lat'], params['lon']]
 	distance = params['radius']
 	Account.each_near(center, distance) do |a|
-		p a
+		to =a['phone_number']
+		url = 'http://ewsb.no32.tk/voices/publish.xml'
+		a.call($twilio, $from_phone_number, to, url)
+		break
 	end
 	'It works!'
 end

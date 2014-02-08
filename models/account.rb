@@ -15,5 +15,13 @@ class Account
 			yield a
 		end
 	end
+
+	def call(client, from, to, url)
+		client.account.calls.create(
+			from: from,
+			to:   to,
+			url:  url,
+		)
+	end
 end
 
