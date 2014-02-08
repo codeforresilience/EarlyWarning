@@ -32,6 +32,7 @@ end
 
 post '/voices/publish.xml' do
 	content_type 'text/xml'
+	p params
 	erb :publish
 end
 
@@ -46,10 +47,15 @@ post '/publish' do
 	params = JSON.parse request.body.read
 	center = [params['lat'], params['lon']]
 	distance = params['radius']
+	threads = []
 	Account.each_near(center, distance) do |a|
 		to =a['phone_number']
-		url = 'http://ewsb.no32.tk/voices/publish.xml'
-		a.call($twilio, $from_phone_number, to, url)
+		url = 'http://ewsb.no32.tk/voices/publish.xml' +
+			"?message=#{CGI.escape params['message']}"
+		t = Thread.start do
+			a.call($twilio, $from_phone_number, to, url)
+		end
+		threads << t
 		break
 	end
 	'It works!'
