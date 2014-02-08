@@ -6,5 +6,6 @@ class Account
 	field :name, type: String
 	field :phone_number, type: String
 	field :loc, type: Hash
+	index({'loc' => '2d'})
 end
 
