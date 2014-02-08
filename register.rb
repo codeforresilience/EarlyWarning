@@ -12,14 +12,14 @@ def main
 	line =~ %r!([0-9\.]+),\s*([0-9\.]+)!
 	lat, lon = $1.to_f, $2.to_f
 	data = {
-		name: name,
-		phone_number: phone_number,
-		loc: {
-			lat: lat,
-			lon: lon
+		'name' => name,
+		'phone_number' => phone_number,
+		'loc' => {
+			'lat' => lat,
+			'lon' =>  lon,
 		},
 	}
-	puts data.to_yaml
+	puts [data].to_yaml
 end
 
 if $0 == __FILE__ then
