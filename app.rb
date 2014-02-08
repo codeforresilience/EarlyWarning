@@ -22,3 +22,8 @@ get '/voices/receipt.xml' do
 	EOX
 end
 
+post '/receipt' do
+end
+
+
+

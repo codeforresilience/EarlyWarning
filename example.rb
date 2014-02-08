@@ -12,7 +12,7 @@ def call(config)
   client.account.calls.create(
     from: from,
     to:   to,
-    url:  'http://xxx.heroku.com/callback',
+    url:  'http://ewsb.no32.tk/voices/receipt.xml',
   )
 end
 
