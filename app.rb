@@ -7,6 +7,8 @@ helpers do
 	include Rack::Utils; alias_method :h, :escape_html
 end
 
+set :public_folder, File.dirname(__FILE__) + '/static'
+
 configure do
 end
 
