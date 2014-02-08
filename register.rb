@@ -9,7 +9,7 @@ def main
 	phone_number = $stdin.readline.chomp
 	print "Input your location(lat, lon): "
 	line = $stdin.readline.chomp
-	line =~ %r!([0-9\.]+),\s+([0-9\.]+)!
+	line =~ %r!([0-9\.]+),\s*([0-9\.]+)!
 	lat, lon = $1.to_f, $2.to_f
 	data = {
 		name: name,
