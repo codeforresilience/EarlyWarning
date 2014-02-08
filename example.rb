@@ -7,10 +7,11 @@ require 'twilio-ruby'
 def call(config)
   client = Twilio::REST::Client.new(config['sid'], config['token'])
 
-  from = config['from_phone_number']
+  from = config['from']
+  to = config['to']
   client.account.calls.create(
     from: from,
-    to:   '+81XXXXXXXXXX',
+    to:   to,
     url:  'http://xxx.heroku.com/callback',
   )
 end
@@ -20,8 +21,9 @@ if $0 == __FILE__ then
                    :require => {
     'sid'   => 'twilio sid',
     'token' => 'twilio auth token',
+    'from' => 'twilio from phone number',
+    'to' => 'target phone number'
   })
-  config['from_phone_number'] = '+815031318881'
   call(config)
 end
 
