@@ -11,10 +11,10 @@ configure do
 end
 
 post '/voices/publish.xml' do
-
+	builder :publish
 end
 
 get '/voices/receipt.xml' do
-
+	builder :receipt
 end
 
