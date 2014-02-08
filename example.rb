@@ -12,7 +12,8 @@ def call(config)
   client.account.calls.create(
     from: from,
     to:   to,
-    url:  'http://ewsb.no32.tk/voices/receipt.xml',
+    url:  'http://ewsb.no32.tk/voices/publish.xml',
+    # url:  'http://ewsb.no32.tk/voices/receipt.xml',
   )
 end
 
