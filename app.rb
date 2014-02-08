@@ -26,6 +26,7 @@ get '/voices/receipt.xml' do
 end
 
 post '/publish' do
+	headers 'Access-Control-Allow-Origin' => '*'
 	request.body.rewind
 	params = JSON.parse request.body.read
 	p params
