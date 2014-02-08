@@ -5,13 +5,9 @@ This repository is for 'Code for Resilience'.
 
 ## Web APIs
 
-### /voices/receipt.xml
+### GET /voices/receipt.xml
 
 受付コールの発話内容、発信前にtwilioからリクエストがくる。まずは固定ファイルでOK。
-
-#### Request
-
-GETのみ
 
 #### Response
 
@@ -33,13 +29,10 @@ Vary: Accept-Encoding
 ```
 
 
-### /receipt
+### POST /receipt
 
-twilioからの通話受信後のsend back
-
-#### Request
-
-x-www-form-urlencoded
+- twilioからの通話受信後のsend back
+- Content-Type: x-www-form-urlencoded
 
 #### Parameters
 
@@ -84,13 +77,14 @@ AccountSid=ACbfae1408e8fdb5cb177a468840c534ce&ToZip=&FromState=&Called=%2B819070
 200かえせばOK?
 
 
-### /publish
+### POST /publish
 
 警報発令
 
-#### Request
+- ContentType: application/json
 
-application/json
+#### Parameters
+
 
 
 #### Sample
