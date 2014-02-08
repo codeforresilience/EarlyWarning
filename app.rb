@@ -10,5 +10,11 @@ end
 configure do
 end
 
-set :public_folder, File.dirname(__FILE__) + '/static'
+post '/voices/publish.xml' do
+
+end
+
+get '/voices/receipt.xml' do
+
+end
 
