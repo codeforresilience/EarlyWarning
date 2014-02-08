@@ -5,9 +5,9 @@
                 method: 'POST',
                 url: '/publish',
                 data: JSON.stringify({
-                    lat: $('#lat').val(),
-                    lon: $('#lon').val(),
-                    radius: $('#radius').val(),
+                    lat: Number($('#lat').val()),
+                    lon: Number($('#lon').val()),
+                    radius: Number($('#radius').val()),
                     message: $('#message').val()
                 })
              });
