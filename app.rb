@@ -10,11 +10,6 @@ require 'mongoid'
 Mongoid.load!('mongoid.yml', :development)
 require_relative './models/account'
 
-
-Account.all().each do |a|
-	p a
-end
-
 helpers do
 	include Rack::Utils; alias_method :h, :escape_html
 end
@@ -38,6 +33,9 @@ post '/publish' do
 	request.body.rewind
 	params = JSON.parse request.body.read
 	p params
+	Account.all().each do |a|
+		p a
+	end
 	'It works!'
 end
 

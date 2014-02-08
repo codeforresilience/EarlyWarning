@@ -1,0 +1,6 @@
+development:
+  sessions:
+    default:
+      database: ewsb
+      hosts: 
+        - localhost:27017
