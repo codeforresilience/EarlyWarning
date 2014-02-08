@@ -85,6 +85,13 @@ AccountSid=ACbfae1408e8fdb5cb177a468840c534ce&ToZip=&FromState=&Called=%2B819070
 
 #### Parameters
 
+Key | Type | Sample Value | 説明 |
+--- | --- | --- | --- | ---
+lat | float | 40.2345 | 中心座標 
+lon | float | 35.9321 | 中心座標
+radius | int | 30000 | 半径(メートル)
+message | string | Disaster comming
+
 
 
 #### Sample
