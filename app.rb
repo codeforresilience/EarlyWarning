@@ -33,8 +33,9 @@ end
 
 post '/voices/publish.xml' do
 	content_type 'text/xml'
-	p params
-	erb :publish
+	erb :publish, :locals => {
+		:message => params['message']
+	}
 end
 
 post '/voices/receipt.xml' do
