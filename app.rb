@@ -1,4 +1,7 @@
 # vim: set noet sts=4 sw=4 ts=4 ft=ruby :
+
+require 'json'
+
 require 'rubygems'
 require 'sinatra'
 require 'sinatra/reloader'
@@ -20,5 +23,12 @@ end
 get '/voices/receipt.xml' do
 	content_type 'text/xml'
 	erb :receipt
+end
+
+post '/publish' do
+	request.body.rewind
+	params = JSON.parse request.body.read
+	p params
+	'It works!'
 end
 
