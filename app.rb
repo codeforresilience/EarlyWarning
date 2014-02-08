@@ -33,8 +33,8 @@ post '/publish' do
 	request.body.rewind
 	params = JSON.parse request.body.read
 	center = [params['lat'], params['lon']]
-	p params
-	Account.geo_near(center).max_distance(params['radius']).each do |a|
+	distance = params['radius']
+	Account.each_near(center, distance) do |a|
 		p a
 	end
 	'It works!'
