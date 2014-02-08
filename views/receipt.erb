@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
-<Say language="ja-JP" voice="alice"> Voice URL と TwiML の設定を変更することでこの発話を変更できます。</Say>
-<Pause length="1"/>
-<Say language="ja-JP" voice="alice">仕様のことでご不明点が御座いましても、ご連絡はお断りです。。</Say>
+  <Say language="en-US" voice="alice">Hello. This is eraly warning system.</Say>
+  <Pause length="1"/>
+  <Gather method="POST" action="http://<%= hostname %>/voices/location.xml" timeout="10" numDigits="l" finishOnKey="*">
+    <Say language="en-US" voice="alice">Please select your location. Then press a star key.</Say>
+    <Pause length="1"/>
+    <Say language="en-US" voice="alice">Dhaka. 1</Say>
+    <Say language="en-US" voice="alice">Chittagong. 2</Say>
+    <Say language="en-US" voice="alice">Barisal. 3</Say>
+    <Say language="en-US" voice="alice">Khulna. 4</Say>
+  </Gather>
 </Response>

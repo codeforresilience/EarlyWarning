@@ -1,6 +1,7 @@
 # vim: set noet sts=4 sw=4 ts=4 ft=ruby :
 
 require 'json'
+require 'socket'
 
 require 'rubygems'
 require 'pit'
@@ -36,9 +37,18 @@ post '/voices/publish.xml' do
 	erb :publish
 end
 
-get '/voices/receipt.xml' do
+post '/voices/receipt.xml' do
+    p settings.port
 	content_type 'text/xml'
-	erb :receipt
+	erb :receipt, :locals => {
+        :hostname => Socket.gethostname
+    }
+end
+
+post '/voices/location.xml' do
+    p params
+	content_type 'text/xml'
+	erb :receipt_finish
 end
 
 post '/publish' do
