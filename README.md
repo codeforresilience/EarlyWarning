@@ -11,9 +11,14 @@ This repository is for 'Code for Resilience'.
 
 #### Response
 
+Sample
+
 ```
-200 OK
-Content-Type:text/xml; charset=utf-8
+HTTP/1.1 200 OK
+Content-Type: text/xml; charset=utf-8
+Date: Sat, 08 Feb 2014 07:22:11 GMT
+Transfer-Encoding: chunked
+Vary: Accept-Encoding
 
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
