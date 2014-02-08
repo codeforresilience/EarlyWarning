@@ -11,10 +11,12 @@ configure do
 end
 
 post '/voices/publish.xml' do
-	builder :publish
+	content_type 'text/xml'
+	erb :publish
 end
 
 get '/voices/receipt.xml' do
-	builder :receipt
+	content_type 'text/xml'
+	erb :receipt
 end
 
