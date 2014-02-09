@@ -39,7 +39,6 @@ post '/voices/publish.xml' do
 end
 
 post '/voices/receipt.xml' do
-    p settings.port
 	content_type 'text/xml'
 	erb :receipt, :locals => {
         :hostname => Socket.gethostname
@@ -47,9 +46,28 @@ post '/voices/receipt.xml' do
 end
 
 post '/voices/location.xml' do
-    p params
 	content_type 'text/xml'
-	erb :receipt_finish
+    p params
+    d = params['Digits'].to_i
+    d = 5 if 5 < d
+    erb :location, :locals => {
+        :hostname => Socket.gethostname,
+        :division => d
+    }
+end
+
+post '/voices/:division/receipt_finish.xml' do
+	content_type 'text/xml'
+    p params
+    city = params['Digits'].to_i
+    division = params['division'].to_i
+    p "===================="
+    p division
+    p city
+    p "===================="
+    erb :receipt_finish, :locals => {
+        :hostname => Socket.gethostname
+    }
 end
 
 post '/publish' do

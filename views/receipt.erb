@@ -3,11 +3,13 @@
   <Say language="en-US" voice="alice">Hello. This is eraly warning system.</Say>
   <Pause length="1"/>
   <Gather method="POST" action="http://<%= hostname %>/voices/location.xml" timeout="10" numDigits="l" finishOnKey="*">
-    <Say language="en-US" voice="alice">Please select your location. Then press a star key.</Say>
+    <Say language="en-US" voice="alice">Please select your division. Then press a star key.</Say>
     <Pause length="1"/>
-    <Say language="en-US" voice="alice">Dhaka. 1</Say>
-    <Say language="en-US" voice="alice">Chittagong. 2</Say>
-    <Say language="en-US" voice="alice">Barisal. 3</Say>
-    <Say language="en-US" voice="alice">Khulna. 4</Say>
+    <Say language="en-US" voice="alice">Khulna. 1</Say>
+    <Say language="en-US" voice="alice">Sylhet. 2</Say>
+    <Say language="en-US" voice="alice">Dhaka. 3</Say>
+    <Say language="en-US" voice="alice">Chittagong. 4</Say>
+    <Say language="en-US" voice="alice">Barisal. 5</Say>
+    <Say language="en-US" voice="alice">Other. 6</Say>
   </Gather>
 </Response>

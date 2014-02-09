@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+  <Pause length="1"/>
+  <Gather method="POST" action="http://<%= hostname %>/voices/<%= division %>/receipt_finish.xml" timeout="10" numDigits="l" finishOnKey="*">
+    <%
+      case division.to_i
+      when 1
+    %>
+    <Say language="en-US" voice="alice">Khulna division.</Say>
+    <Pause length="1"/>
+    <Say language="en-US" voice="alice">Please select your city. Then press a star key.</Say>
+    <Pause length="1"/>
+    <Say language="en-US" voice="alice">Bagerhat. 1</Say>
+    <Say language="en-US" voice="alice">Chuadanga. 2</Say>
+    <Say language="en-US" voice="alice">Jessore. 3</Say>
+    <Say language="en-US" voice="alice">Jhenaidah. 4</Say>
+    <Say language="en-US" voice="alice">Khulna. 5</Say>
+    <Say language="en-US" voice="alice">Other. 6</Say>
+    <%
+      when 2
+    %>
+    <Say language="en-US" voice="alice">Sylhet division.</Say>
+    <Pause length="1"/>
+    <Say language="en-US" voice="alice">Please select your city. Then press a star key.</Say>
+    <Pause length="1"/>
+    <Say language="en-US" voice="alice">Habiganj. 1</Say>
+    <Say language="en-US" voice="alice">Maulvibazar. 2</Say>
+    <Say language="en-US" voice="alice">Sunamganj. 3</Say>
+    <Say language="en-US" voice="alice">Sylhet. 4</Say>
+    <%
+      when 3
+    %>
+    <Say language="en-US" voice="alice">Dhaka division.</Say>
+    <Pause length="1"/>
+    <Say language="en-US" voice="alice">Please select your city. Then press a star key.</Say>
+    <Pause length="1"/>
+    <Say language="en-US" voice="alice">Dhaka. 1</Say>
+    <Say language="en-US" voice="alice">Faridpur. 2</Say>
+    <Say language="en-US" voice="alice">Gazipur. 3</Say>
+    <Say language="en-US" voice="alice">Gopalganj. 4</Say>
+    <Say language="en-US" voice="alice">Jamalpur. 5</Say>
+    <Say language="en-US" voice="alice">Other. 6</Say>
+
+    <%
+        when 4
+    %>
+    <Say language="en-US" voice="alice">Chittagong division.</Say>
+    <Pause length="1"/>
+    <Say language="en-US" voice="alice">Please select your city. Then press a star key.</Say>
+    <Pause length="1"/>
+    <Say language="en-US" voice="alice">Bandarban. 1</Say>
+    <Say language="en-US" voice="alice">Brahmanbaria. 2</Say>
+    <Say language="en-US" voice="alice">Chandpur. 3</Say>
+    <Say language="en-US" voice="alice">Chittagong. 4</Say>
+    <Say language="en-US" voice="alice">Other. 5</Say>
+    <%
+        when 5
+    %>
+    <Say language="en-US" voice="alice">Barisai division.</Say>
+    <Pause length="1"/>
+    <Say language="en-US" voice="alice">Please select your city. Then press a star key.</Say>
+    <Pause length="1"/>
+    <Say language="en-US" voice="alice">Barguna. 1</Say>
+    <Say language="en-US" voice="alice">Barisal. 2</Say>
+    <Say language="en-US" voice="alice">Bhola. 3</Say>
+    <Say language="en-US" voice="alice">Jhalokati. 4</Say>
+    <Say language="en-US" voice="alice">Patuakhali. 5</Say>
+    <Say language="en-US" voice="alice">Pirojpur. 6</Say>
+    <%
+        else
+    %>
+    <Say language="en-US" voice="alice">Other division.</Say>
+    <Pause length="1"/>
+    <Say language="en-US" voice="alice">Please select your city. Then press a star key.</Say>
+    <Pause length="1"/>
+    <Say language="en-US" voice="alice">Rangpur. 1</Say>
+    <Say language="en-US" voice="alice">Rajshahi. 2</Say>
+    <Say language="en-US" voice="alice">Other. 3</Say>
+    <%
+      end
+    %>
+
+  </Gather>
+</Response>
