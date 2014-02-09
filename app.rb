@@ -105,12 +105,12 @@ post '/publish' do
 	phone_numbers = []
 	Account.each_near(center, distance) do |a|
 		to = a['phone_number']
-		phone_numbers << to
 		url = 'http://ewsb.no32.tk/voices/publish.xml' +
 			"?message=#{CGI.escape params['message']}"
 		unless phone_numbers.include? to
 			a.call($twilio, $from_phone_number, to, url)
 		end
+		phone_numbers << to
 	end
 	'It works!'
 end
