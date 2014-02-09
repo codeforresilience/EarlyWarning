@@ -59,12 +59,38 @@ end
 post '/voices/:division/receipt_finish.xml' do
 	content_type 'text/xml'
     p params
-    city = params['Digits'].to_i
+    #city = params['Digits'].to_i
     division = params['division'].to_i
-    p "===================="
-    p division
-    p city
-    p "===================="
+
+    loc = {}
+    case division
+    when 1
+        # Khulna
+        loc[:lat] = 22.816694
+        loc[:lon] = 89.549561
+    when 2
+        # Sylhet
+        loc[:lat] = 24.796708
+        loc[:lon] = 91.757813
+    when 3
+        # Dhaka
+        loc[:lat] = 23.70238
+        loc[:lon] = 90.401001
+    when 4
+        # Chittagong
+        loc[:lat] = 22.324671
+        loc[:lon] = 91.829224
+    else
+        # Other
+        loc[:lat] = 24.85155
+        loc[:lon] = 89.351807
+    end
+    Account.new({
+        :name => "N/A",
+        :phone_number => params['Caller'],
+        :loc => loc
+    }).save
+
     erb :receipt_finish, :locals => {
         :hostname => Socket.gethostname
     }
