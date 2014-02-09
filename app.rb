@@ -102,11 +102,15 @@ post '/publish' do
 	params = JSON.parse request.body.read
 	center = [params['lat'], params['lon']]
 	distance = params['radius']
+	phone_numbers = []
 	Account.each_near(center, distance) do |a|
-		to =a['phone_number']
+		to = a['phone_number']
+		phone_numbers << to
 		url = 'http://ewsb.no32.tk/voices/publish.xml' +
 			"?message=#{CGI.escape params['message']}"
-		a.call($twilio, $from_phone_number, to, url)
+		unless phone_numbers.include? to
+			a.call($twilio, $from_phone_number, to, url)
+		end
 	end
 	'It works!'
 end
