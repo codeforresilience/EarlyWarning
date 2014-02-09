@@ -43,9 +43,20 @@ var ew;
 
             this.map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 			_this.getLatLng("Bangladesh mosque");
-            _this.circle.setMap(_this.map);
 
             this.circle = this.createCircle(this.map.getCenter(), 100000);
+            _this.circle.setMap(_this.map);
+            this.circle.addListener('center_changed', (function() {
+                if (this.on_center_changed) {
+                    this.on_center_changed(this.circle.center);
+                }
+            }).bind(this));
+
+            this.circle.addListener('radius_changed', (function() {
+                if (this.on_radius_changed) {
+                    this.on_radius_changed(this.circle.radius);
+                }
+            }).bind(this));
         };
 
         MainController.prototype.getLatLng = function (place) {
