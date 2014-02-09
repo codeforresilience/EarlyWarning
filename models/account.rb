@@ -9,14 +9,14 @@ class Account
 	geo_field :loc
 	index({'loc' => '2d'})
 
-	def self.each_near(loc, meter)
-			p loc
-			p meter
-      Account.within_circle(location: [loc, meter]) do |a|
-			p a
-			yield a
-		end
-	end
+  def self.each_near(loc, meter)
+    p loc
+    p meter
+    Account.all.each do |a|
+      p a
+      yield a
+    end
+  end
 
 	def call(client, from, to, url)
 		client.account.calls.create(
