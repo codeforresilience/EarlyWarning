@@ -9,9 +9,10 @@ class Account
 	index({'loc' => '2d'})
 
 	def self.each_near(loc, meter)
-		Account
-			.geo_near(loc)
-			.max_distance(meter).each do |a|
+		Account.within_circle(location: [loc, meter]) do |a|
+			p loc
+			p meter
+			p a
 			yield a
 		end
 	end
