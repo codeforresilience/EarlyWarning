@@ -5,4 +5,5 @@ gem 'rack'
 gem 'sinatra'
 gem 'sinatra-reloader'
 gem 'mongoid'
+gem 'mongoid_geospatial'
 

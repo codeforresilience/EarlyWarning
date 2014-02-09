@@ -2,16 +2,17 @@
 
 class Account
 	include Mongoid::Document
+  include Mongoid::Geospatial
 	store_in collection: 'account'
 	field :name, type: String
 	field :phone_number, type: String
-	field :loc, type: Hash
+	geo_field :loc
 	index({'loc' => '2d'})
 
 	def self.each_near(loc, meter)
-		Account.within_circle(location: [loc, meter]) do |a|
 			p loc
 			p meter
+      Account.within_circle(location: [loc, meter]) do |a|
 			p a
 			yield a
 		end

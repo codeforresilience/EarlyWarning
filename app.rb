@@ -10,6 +10,7 @@ require 'sinatra'
 require 'sinatra/reloader'
 
 require 'mongoid'
+require 'mongoid_geospatial'
 Mongoid.load!('mongoid.yml', :development)
 require_relative './models/account'
 
