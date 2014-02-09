@@ -85,7 +85,6 @@ post '/publish' do
 			a.call($twilio, $from_phone_number, to, url)
 		end
 		threads << t
-		break
 	end
 	'It works!'
 end
