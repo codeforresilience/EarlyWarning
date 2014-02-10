@@ -2,7 +2,7 @@
 
 class Account
 	include Mongoid::Document
-  include Mongoid::Geospatial
+	include Mongoid::Geospatial
 	store_in collection: 'account'
 	field :name, type: String
 	field :phone_number, type: String
@@ -10,9 +10,11 @@ class Account
 	index({'loc' => '2d'})
 
 	def self.each_near(loc, meter)
-			p loc
-			p meter
-      Account.within_circle(location: [loc, meter]) do |a|
+		p loc
+		p meter
+		# ToDo: use within and centerSphere
+		# see also: http://tipshare.info/view/4f0d22494b21224c43000000
+		Account.within_circle(location: [loc, meter]) do |a|
 			p a
 			yield a
 		end
